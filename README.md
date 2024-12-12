@@ -14,8 +14,8 @@ A modern task management application built with Laravel and Vue.js.
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/KraJacob/todo-list.git
+cd <todo-list>
 
 2. Install PHP dependencies:
 composer install
@@ -35,7 +35,7 @@ DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=todo_list
 DB_USERNAME=postgres
-DB_PASSWORD=your_password
+DB_PASSWORD=password
 
 7. Run database migrations:
 php artisan migrate
@@ -50,14 +50,14 @@ npm run dev
 3. Access the application in your browser at http://localhost:8000.
 
 ## Features
-    . Create, read, update, and delete tasks
-    . Set task priorities
-    . Mark tasks as completed
+. Create, read, update, and delete tasks
+. Set task priorities
+. Mark tasks as completed
 
 ## Building With
-    . Laravel
-    . Vue.js 3
-    . Tailwind CSS
-    . PostgreSQL
+. Laravel
+. Vue.js 3
+. Tailwind CSS
+. PostgreSQL
 
 
