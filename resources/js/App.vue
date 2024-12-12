@@ -90,7 +90,8 @@ export default {
       try {
         const response = await axios.post('/api/todos', this.newTodo);
         this.todos.push(response.data);
-        this.newTodo.title = '';
+          this.newTodo.title = '';
+        console.log(response.data);
       } catch (error) {
         console.error('Erreur lors de l\'ajout de la tâche', error);
       }

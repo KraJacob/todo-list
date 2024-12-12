@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\TodoRepository;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
+
+    public function __construct(protected TodoRepository $todoRepository) {}
     public function index()
     {
-        return Todo::all();
+        return response()->json($this->todoRepository->getAll());
     }
 
     public function store(Request $request)
@@ -20,7 +23,10 @@ class TodoController extends Controller
             'priority' => 'in:low,medium,high',
         ]);
 
-        return Todo::create($validatedData);
+        return response()->json(
+            $this->todoRepository->create($validatedData),
+            201
+        );
     }
 
     public function update(Request $request, Todo $todo)
@@ -32,8 +38,9 @@ class TodoController extends Controller
             'priority' => 'sometimes|in:low,medium,high',
         ]);
 
-        $todo->update($validatedData);
-        return $todo;
+        return response()->json(
+            $this->todoRepository->update($todo, $validatedData)
+        );
     }
 
     public function destroy(Todo $todo)
